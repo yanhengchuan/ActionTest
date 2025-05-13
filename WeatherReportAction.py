@@ -15,7 +15,7 @@ appSecret = os.environ.get("APP_SECRET")
 openIds = ["oVz_Y7SVW-3OznWo8eRkbIdERtvY", "oVz_Y7WrpJbkzKUWvCRCno7sIQD4"]
 # 天气预报模板ID
 weather_template_id = os.environ.get("TEMPLATE_ID")
-timeschedule_template_id = os.environ.get("TS_TEMPLATE_ID")
+timeschedule_template_id = "KywMC6HB9pVTBlC0yJA8IH1n4cdaa8mYl0PifhVpaTU"#os.environ.get("TS_TEMPLATE_ID")
 
 
 
