@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 #timeschedule_template_id = os.environ.get("TIMESCHEDULE_TEMPLATE_ID")
 appID = "wx2f1a51347c4eba3b"
 appSecret = "6f2b05bba9ec9c36e936813e5e794b79"
-openIds = ["oVz_Y7SVW-3OznWo8eRkbIdERtvY", "oVz_Y7WrpJbkzKUWvCRCno7sIQD4"]
+openId = "oVz_Y7SVW-3OznWo8eRkbIdERtvY"
 weather_template_id = "PdYubBE0B5kPv2uuIFo1WgasytVUte3z08YCx62NHIU"
 timeschedule_template_id = "KywMC6HB9pVTBlC0yJA8IH1n4cdaa8mYl0PifhVpaTU"
 
@@ -98,54 +98,52 @@ def send_weather(access_token, weather):
     import datetime
     today = datetime.date.today()
     today_str = today.strftime("%Y年%m月%d日")
-    for openId in openIds:
 
-        body = {
-            "touser": openId.strip(),
-            "template_id": weather_template_id.strip(),
-            "url": "https://weixin.qq.com",
-            "data": {
-                "date": {
-                    "value": today_str
-                },
-                "region": {
-                    "value": weather[0]
-                },
-                "weather": {
-                    "value": weather[2]
-                },
-                "temp": {
-                    "value": weather[1]
-                },
-                "wind_dir": {
-                    "value": weather[3]
-                },
-                "today_note": {
-                    "value": get_daily_love()
-                }
+    body = {
+        "touser": openId.strip(),
+        "template_id": weather_template_id.strip(),
+        "url": "https://weixin.qq.com",
+        "data": {
+            "date": {
+                "value": today_str
+            },
+            "region": {
+                "value": weather[0]
+            },
+            "weather": {
+                "value": weather[2]
+            },
+            "temp": {
+                "value": weather[1]
+            },
+            "wind_dir": {
+                "value": weather[3]
+            },
+            "today_note": {
+                "value": get_daily_love()
             }
         }
-        url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}'.format(access_token)
-        print(requests.post(url, json.dumps(body)).text)
+    }
+    url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}'.format(access_token)
+    print(requests.post(url, json.dumps(body)).text)
 
 def send_timetable(access_token, message):
     import datetime
     today = datetime.date.today()
     today_str = today.strftime("%Y年%m月%d日")
 
-    for openId in openIds:
-        body = {
-            "touser": openId.strip(),
-            "template_id": timeschedule_template_id.strip(),
-            "url": "https://weixin.qq.com",
-            "data": {
-                "message":  {
-                    "value": message
-                }
+    body = {
+        "touser": openId.strip(),
+        "template_id": timeschedule_template_id.strip(),
+        "url": "https://weixin.qq.com",
+        "data": {
+            "message":  {
+                "value": message
             }
         }
-        url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}'.format(access_token)
-        print(requests.post(url, json.dumps(body)).text)
+    }
+    url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}'.format(access_token)
+    print(requests.post(url, json.dumps(body)).text)
 
 def weather_report(this_city):
     # 1.获取access_token
@@ -165,7 +163,7 @@ def timetable(message):
 
 
 if __name__ == '__main__':
-    weather_report("北京")
+    weather_report("淄博")
     #timetable("第一教学楼十分钟后开始英语课")
 
     #schedule.every().day.at("18:38").do(weather_report, "南京"
