@@ -162,7 +162,7 @@ def timetable(message):
 
 if __name__ == '__main__':
     weather_report("北京")
-        timetable("起床，开干！")
+    timetable("起床，开干！")
 
     #schedule.every().day.at("18:38").do(weather_report, "南京"
 
