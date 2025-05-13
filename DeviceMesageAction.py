@@ -8,18 +8,13 @@ import schedule
 from bs4 import BeautifulSoup
 
 # 从测试号信息获取
-#appID = os.environ.get("APP_ID")
-#appSecret = os.environ.get("APP_SECRET")
+appID = os.environ.get("APP_ID")
+appSecret = os.environ.get("APP_SECRET")
 # 收信人ID即 用户列表中的微信号
-#openId = os.environ.get("OPEN_ID")
+openId = os.environ.get("OPEN_ID")
 # 天气预报模板ID
-#weather_template_id = os.environ.get("TEMPLATE_ID")
+weather_template_id = os.environ.get("TEMPLATE_ID")
 #timeschedule_template_id = os.environ.get("TIMESCHEDULE_TEMPLATE_ID")
-appID = "wx2f1a51347c4eba3b"
-appSecret = "6f2b05bba9ec9c36e936813e5e794b79"
-openId = "oVz_Y7SVW-3OznWo8eRkbIdERtvY"
-weather_template_id = "PdYubBE0B5kPv2uuIFo1WgasytVUte3z08YCx62NHIU"
-timeschedule_template_id = "KywMC6HB9pVTBlC0yJA8IH1n4cdaa8mYl0PifhVpaTU"
 
 
 
@@ -163,7 +158,7 @@ def timetable(message):
 
 
 if __name__ == '__main__':
-    weather_report("淄博")
+    weather_report("北京")
     #timetable("第一教学楼十分钟后开始英语课")
 
     #schedule.every().day.at("18:38").do(weather_report, "南京"
